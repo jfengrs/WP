@@ -1,24 +1,25 @@
-//
-//  ContentView.swift
-//  WatchParty
-//
-//  Created by Jerry Feng on 2025-09-18.
-//
-
+import Google
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var topic: String = ""
+    @State private var result: String? = ""
+    
+    private let google = Google()
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            TextField("Input topic", text: $topic)
+            Button("Submit") {
+                Task {
+                    result = await google.ask(topic: topic)
+                }
+            }
+            if let result, !result.isEmpty {
+                Text("Gemini says: \(result)")
+            }
         }
         .padding()
     }
-}
-
-#Preview {
-    ContentView()
 }

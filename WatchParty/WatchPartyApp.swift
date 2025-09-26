@@ -1,17 +1,16 @@
-//
-//  WatchPartyApp.swift
-//  WatchParty
-//
-//  Created by Jerry Feng on 2025-09-18.
-//
-
+import Google
 import SwiftUI
 
 @main
 struct WatchPartyApp: App {
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
+    }
+    
+    init () {
+        Google.configure()
     }
 }
