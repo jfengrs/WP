@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "Google",
     platforms: [
-        .iOS(.v26), .tvOS(.v26), .macOS(.v15), .visionOS(.v26)
+        .iOS(.v26), .macOS(.v15), .watchOS(.v26)
     ],
     products: [
         .library(
